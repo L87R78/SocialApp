@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/socialApp/static/css/main.b100e6da.chunk.css",
+    "main.js": "/socialApp/static/js/main.2cd13ded.chunk.js",
+    "main.js.map": "/socialApp/static/js/main.2cd13ded.chunk.js.map",
+    "runtime-main.js": "/socialApp/static/js/runtime-main.02f87bbe.js",
+    "runtime-main.js.map": "/socialApp/static/js/runtime-main.02f87bbe.js.map",
+    "static/js/2.32b86e7e.chunk.js": "/socialApp/static/js/2.32b86e7e.chunk.js",
+    "static/js/2.32b86e7e.chunk.js.map": "/socialApp/static/js/2.32b86e7e.chunk.js.map",
+    "index.html": "/socialApp/index.html",
+    "precache-manifest.4f4fef0fde0738f91a23328107f3dbbf.js": "/socialApp/precache-manifest.4f4fef0fde0738f91a23328107f3dbbf.js",
+    "service-worker.js": "/socialApp/service-worker.js",
+    "static/css/main.b100e6da.chunk.css.map": "/socialApp/static/css/main.b100e6da.chunk.css.map"
+  }
+}
