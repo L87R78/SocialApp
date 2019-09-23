@@ -2,7 +2,7 @@
   "name": "socialapp",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://l87r78.github.io/socialApp/",
+  "homepage": "https://l87r78.github.io/socialapp/",
   "dependencies": {
     "firebase": "^6.6.2",
     "gh-pages": "^2.1.1",
