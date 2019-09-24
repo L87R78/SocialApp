@@ -47,9 +47,9 @@ class App extends Component {
         })
     }
     render() {
-        let errorNotifications = this.state.fireErrors
-            ? (<div className="error">{this.state.fireErrors}</div>)
-            : null
+        // let errorNotifications = this.state.fireErrors
+        //     ? (<div className="error">{this.state.fireErrors}</div>)
+        //     : null
 
         //console.log(this.state.notes)
         return (
