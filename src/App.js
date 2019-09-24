@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import fire from './config/file';
-import LoginRegister from './components/loginRegister';
-import Home from './components/home';
-import './App.css';
+import fire from './config/config';
+import LoginRegister from './components/loginAndRegister';
+import Home from './components/home.jsx';
+import './App.scss';
 
 class App extends Component {
   constructor(props) {
     super(props)
-
     this.state = {
       user: null
     }
@@ -27,10 +26,8 @@ class App extends Component {
           })
         }
     })
-
   }
  
-
   render() {
     return (
       <div className="App">
@@ -43,5 +40,4 @@ class App extends Component {
     );
   }
 }
-
 export default App;

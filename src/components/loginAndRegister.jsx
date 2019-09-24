@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import fire from '../config/file';
+import fire from '../config/config';
 
-
-class LoginRegister extends Component {
+class LoginAndRegister extends Component {
     constructor(props) {
         super(props)
 
@@ -21,13 +20,11 @@ class LoginRegister extends Component {
         })
     }
     login = (e) => {
-        console.log('hm')
         e.preventDefault();
         fire
             .auth()
             .signInWithEmailAndPassword(this.state.email, this.state.password)
             .catch((err) => {
-                console.log('here')
                 this.setState({
                     fireErrors: err.message
                 })
@@ -44,13 +41,12 @@ class LoginRegister extends Component {
                     fireErrors: err.message
                 })
             })
-
     }
 
     render() {
-        let errorNotifications = this.state.fireErrors 
-        ? (<div className="error">{this.state.fireErrors}</div>)
-        : null
+        let errorNotifications = this.state.fireErrors
+            ? (<div className="error">{this.state.fireErrors}</div>)
+            : null
         console.log(errorNotifications)
         return (
             <div className="form_block">
@@ -79,5 +75,4 @@ class LoginRegister extends Component {
         );
     }
 }
-
-export default LoginRegister;
+export default LoginAndRegister;
