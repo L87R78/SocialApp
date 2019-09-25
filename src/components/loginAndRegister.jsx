@@ -1,5 +1,14 @@
 import React, { Component } from 'react';
 import fire from '../config/config';
+import PropTypes from 'prop-types';
+import withStyles from '@material-ui/core/styles/withStyles';
+import TextField from '@material-ui/core/TextField';
+
+const styles = {
+    input: {
+        margin: '0.5rem',
+    }
+};
 
 class LoginAndRegister extends Component {
     constructor(props) {
@@ -8,12 +17,14 @@ class LoginAndRegister extends Component {
         this.state = {
             email: '',
             password: '',
+            confirmPassword: '',
             fireErrors: '',
             formTitle: 'Login',
             loginBtn: true
 
         }
     }
+
     handleChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value
@@ -33,21 +44,48 @@ class LoginAndRegister extends Component {
     }
     register = (e) => {
         e.preventDefault();
+        console.log('register')
         fire
             .auth()
-            .createUserWithEmailAndPassword(this.state.email, this.state.password)
+            .createUserWithEmailAndPassword(this.state.email, this.state.password, this.state.confirmPassword)
             .catch((err) => {
+                console.log('here error register')
                 this.setState({
                     fireErrors: err.message
                 })
             })
     }
+    getAction = (e) => {
+        if (e === 'reg') {
+            this.setState({
+                formTitle: "Register New User",
+                loginBtn: false,
+                fireErrors: ''
+            })
+        } else {
+            this.setState({
+                formTitle: "Login",
+                loginBtn: true,
+                fireErrors: ''
+            })
+        }
+    }
+
 
     render() {
         let errorNotifications = this.state.fireErrors
             ? (<div className="error">{this.state.fireErrors}</div>)
             : null
-        console.log(errorNotifications)
+
+        let submitBtn = this.state.loginBtn
+            ? (<button type="submit" className="loginBtn" onClick={this.login} >Enter </button>)
+            : (<button type="submit" className="loginBtn" onClick={this.register} >Register</button>)
+
+        let login_register = this.state.loginBtn
+            ? (<button className="registerBtn" onClick={() => this.getAction('reg')}>Register</button>)
+            : (<button className="registerBtn" onClick={() => this.getAction('login')}>Login</button>)
+
+        const { classes } = this.props;
         return (
             <div className="form_block">
                 <div id="title">
@@ -55,24 +93,47 @@ class LoginAndRegister extends Component {
                 </div>
                 <div className="body">
                     {errorNotifications}
-                    <form>
-                        <input type="text"
+                    <form >
+                        <TextField
+                            className={classes.input}
+                            type="text"
                             value={this.state.email}
                             onChange={this.handleChange}
                             name="email"
+                            label="Email"
                         />
-                        <input type="password"
+                        <TextField type="password"
+                            className={classes.input}
                             value={this.state.password}
                             onChange={this.handleChange}
                             name="password"
+                            type="password"
+                            label="Password"
                         />
-                        <button type="submit" className="loginBtn" onClick={this.login} >Enter</button>
-
+                        {/* {
+                            this.state.loginBtn !== true
+                                ? <TextField type="password"
+                                    className={classes.input}
+                                    value={this.state.password}
+                                    //onChange={this.handleChange}
+                                    name="password"
+                                    type="password"
+                                    label="Password"
+                                />
+                                : null
+                        } */}
                     </form>
-                    <button type="submit" className="registerBtn" onClick={this.register} >Register</button>
+                    <div className="buttons">
+                        {submitBtn}
+                        {login_register}
+                    </div>
                 </div>
             </div>
         );
     }
 }
-export default LoginAndRegister;
+LoginAndRegister.propTypes = {
+    classes: PropTypes.object.isRequired
+}
+export default withStyles(styles)(LoginAndRegister);
+//export default LoginAndRegister;

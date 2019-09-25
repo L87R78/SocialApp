@@ -1,3 +1,5 @@
+
+
 body {
   background: url("./Images//sky.jpg");
 }
@@ -12,13 +14,75 @@ body {
   margin: auto;
 
   .form_block {
-    border: 1px solid red;
-    width: 500px;
+    background: white;
+    width: 290px;
     position: relative;
     top: 200px;
     bottom: 0;
     left: 0;
     right: 0;
     margin: auto;
+    border: 5px solid white;
+    border-radius: 4px;
+    opacity: 0.9;
+    #title {
+      //border: 1px solid red;
+      font-family: 'Roboto Mono', monospace;
+      background: grey;
+      padding: 0.5rem;
+      color: white;
+    }
+
+    .body {
+      
+      .error {
+        font-family: 'Roboto Mono', monospace;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        text-align: start;
+
+        span {
+          font-family: 'Roboto Mono', monospace;
+          margin: 0 0.4rem;
+          font-size: 12px;
+          margin-top: 1rem;
+          color: rgba(128, 128, 128, 0.904);
+        }
+        // input {
+        //   //padding: 5px;
+        //   //font-family: 'Roboto Mono', monospace;
+        //   //border: none;
+        //   //margin: 0 1.5rem;
+        //   //border: 2px solid red;
+
+        //   //border-bottom: 1px solid grey;
+         
+
+        // }
+     
+      }
+      .buttons {
+        
+        display: flex;
+        justify-content: space-between;
+        margin: 0.4rem 0.4rem;
+        .loginBtn {
+          width: 70px;
+          cursor: pointer;
+          padding: 2px;
+          font-size: 12px;
+          font-family: 'Roboto Mono', monospace;
+        }
+        .registerBtn {
+          width: 70px;
+          cursor: pointer;
+          padding: 2px;
+          font-size: 12px;
+          font-family: 'Roboto Mono', monospace;
+        }
+      }
+    }
   }
 }

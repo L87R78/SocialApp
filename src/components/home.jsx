@@ -47,11 +47,17 @@ class App extends Component {
         })
     }
     render() {
-        // let errorNotifications = this.state.fireErrors
-        //     ? (<div className="error">{this.state.fireErrors}</div>)
-        //     : null
+       let test = fire.database().ref('/users/');
+       //console.log(test)
+       fire.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            console.log('This is the user: ', user.email)
+        } else {
+            // No user is signed in.
+            console.log('There is no logged in user');
+        }
+    });
 
-        //console.log(this.state.notes)
         return (
             <div className="App">
                 <h2>Home page</h2>
