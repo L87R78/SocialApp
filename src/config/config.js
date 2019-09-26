@@ -14,3 +14,4 @@ const fire = firebase.initializeApp(DB_CONFIG);
 export default fire;
 
 
+

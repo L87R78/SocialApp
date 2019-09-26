@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import fire from '../config/config';
+import firebase from '../config/config';
 import PropTypes from 'prop-types';
 import withStyles from '@material-ui/core/styles/withStyles';
 import TextField from '@material-ui/core/TextField';
@@ -17,7 +17,6 @@ class LoginAndRegister extends Component {
         this.state = {
             email: '',
             password: '',
-            confirmPassword: '',
             fireErrors: '',
             formTitle: 'Login',
             loginBtn: true
@@ -32,7 +31,8 @@ class LoginAndRegister extends Component {
     }
     login = (e) => {
         e.preventDefault();
-        fire
+
+        firebase
             .auth()
             .signInWithEmailAndPassword(this.state.email, this.state.password)
             .catch((err) => {
@@ -40,16 +40,13 @@ class LoginAndRegister extends Component {
                     fireErrors: err.message
                 })
             })
-
     }
     register = (e) => {
         e.preventDefault();
-        console.log('register')
-        fire
+        firebase
             .auth()
-            .createUserWithEmailAndPassword(this.state.email, this.state.password, this.state.confirmPassword)
+            .createUserWithEmailAndPassword(this.state.email, this.state.password)
             .catch((err) => {
-                console.log('here error register')
                 this.setState({
                     fireErrors: err.message
                 })
@@ -70,7 +67,6 @@ class LoginAndRegister extends Component {
             })
         }
     }
-
 
     render() {
         let errorNotifications = this.state.fireErrors
@@ -93,6 +89,7 @@ class LoginAndRegister extends Component {
                 </div>
                 <div className="body">
                     {errorNotifications}
+
                     <form >
                         <TextField
                             className={classes.input}
@@ -110,18 +107,6 @@ class LoginAndRegister extends Component {
                             type="password"
                             label="Password"
                         />
-                        {/* {
-                            this.state.loginBtn !== true
-                                ? <TextField type="password"
-                                    className={classes.input}
-                                    value={this.state.password}
-                                    //onChange={this.handleChange}
-                                    name="password"
-                                    type="password"
-                                    label="Password"
-                                />
-                                : null
-                        } */}
                     </form>
                     <div className="buttons">
                         {submitBtn}
@@ -136,4 +121,3 @@ LoginAndRegister.propTypes = {
     classes: PropTypes.object.isRequired
 }
 export default withStyles(styles)(LoginAndRegister);
-//export default LoginAndRegister;

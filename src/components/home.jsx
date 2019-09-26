@@ -1,21 +1,20 @@
 import React, { Component } from 'react';
-import fire from '../config/config';
+import firebase from '../config/config';
 import Note from '../Note/note';
 import NoteForm from '../NoteForm/noteForm';
-//import firebase from 'firebase/app';
-//import 'firebase/database';
+
 
 class App extends Component {
     constructor(props) {
         super(props)
-        //this.app = firebase.initializeApp(DB_CONFIG);
-        this.database = fire.database().ref().child('notes');
+        this.database = firebase.database().ref().child('notes');
         this.state = {
             notes: [],
+            userEmail: ''
         }
     }
     logOut = () => {
-        fire.auth().signOut();
+        firebase.auth().signOut();
     }
     addNote = (note) => {
         this.database.push().set({ noteContent: note });
@@ -46,39 +45,44 @@ class App extends Component {
             })
         })
     }
-    render() {
-       let test = fire.database().ref('/users/');
-       //console.log(test)
-       fire.auth().onAuthStateChanged(function(user) {
+    componentDidMount() {
+        let user = firebase.auth().currentUser;
         if (user) {
-            console.log('This is the user: ', user.email)
-        } else {
-            // No user is signed in.
-            console.log('There is no logged in user');
+            this.setState({
+                userEmail: user.email
+            })
         }
-    });
-
+    }
+    render() {
         return (
-            <div className="App">
-                <h2>Home page</h2>
-                <button onClick={this.logOut}>logOut</button>
-                <h2>react and firebase</h2>
-                <div className="notesBody">
-                    {
-                        this.state.notes.map((note, key) => {
-                            return (
-                                < Note
-                                    noteContent={note.noteContent}
-                                    noteId={note.id}
-                                    key={note.id}
-                                    removeNote={this.removeNote}
-                                />
-                            )
-                        })
-                    }
+            <div className="boxes_home">
+                <div className="box_me">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpErtT1Ehnevyx6fpihxPb8kB-2N7jf0-jsGQfSrqHE6R02ZHM-Q" alt="" />
+                    <span className="my_email">{this.state.userEmail}</span>
+                    <button onClick={this.logOut}>logOut</button>
                 </div>
-                <div className="noteForm">
-                    < NoteForm addNote={this.addNote} />
+
+                <div className="notesBody">
+                    <div className="noteForm">
+                        < NoteForm addNote={this.addNote} />
+                    </div>
+                    <div className="notex_box">
+                        {
+                            this.state.notes.map((note, key) => {
+                                return (
+                                    < Note
+                                        noteContent={note.noteContent}
+                                        noteId={note.id}
+                                        key={note.id}
+                                        removeNote={this.removeNote}
+                                    />
+                                )
+                            })
+                        }
+                    </div>
+                </div>
+                <div className="other_user">
+                    <h2>other</h2>
                 </div>
             </div>
         );

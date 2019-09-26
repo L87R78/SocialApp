@@ -14,13 +14,10 @@ class Note extends Component {
     render() {
         return (
             <div className="note fade_in">
-                <div className="btn_remove">
+                {/* <div className="btn_remove">
                     <button onClick={() => this.handleRemoveNote(this.noteId)}>X</button>
-                </div>
-
-                <div>
-                    <p className="noteContent">{this.noteContent}</p>
-                </div>
+                </div> */}
+                <p>{this.noteContent}</p>
             </div>
         )
     }
