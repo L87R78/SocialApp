@@ -14,10 +14,13 @@ class Note extends Component {
         })
     }
     writeNote = (e) => {
-        this.props.addNote(this.state.noteNewContent);
-        this.setState({
-            noteNewContent: ''
-        })
+        if (this.state.noteNewContent.length > 0) {
+            this.props.addNote(this.state.noteNewContent);
+            this.setState({
+                noteNewContent: ''
+            })
+        }
+
     }
 
     render() {

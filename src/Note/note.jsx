@@ -15,7 +15,7 @@ class Note extends Component {
         return (
             <div className="note fade_in">
                
-                    <i class="far fa-smile-wink"></i>
+                    <i className="far fa-smile-wink"></i>
                 
                 <div className="email_and_text">
                     <span>{userEmail}</span>
