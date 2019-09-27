@@ -3,21 +3,23 @@ import firebase from '../config/config';
 import Note from '../Note/note';
 import NoteForm from '../NoteForm/noteForm';
 
-
 class App extends Component {
     constructor(props) {
         super(props)
         this.database = firebase.database().ref().child('notes');
         this.state = {
             notes: [],
-            userEmail: ''
+            currUserEmail: ''
         }
     }
     logOut = () => {
         firebase.auth().signOut();
     }
     addNote = (note) => {
-        this.database.push().set({ noteContent: note });
+        this.database.push().set({
+            noteContent: note,
+            userEmail: this.state.currUserEmail
+        });
     }
     removeNote = (noteId) => {
         this.database.child(noteId).remove();
@@ -28,7 +30,8 @@ class App extends Component {
         this.database.on('child_added', snap => {
             previousNotes.push({
                 id: snap.key,
-                noteContent: snap.val().noteContent
+                noteContent: snap.val().noteContent,
+                userEmail: snap.val().userEmail
             })
             this.setState({
                 notes: previousNotes
@@ -46,43 +49,40 @@ class App extends Component {
         })
     }
     componentDidMount() {
+        console.log(firebase.auth())
         let user = firebase.auth().currentUser;
         if (user) {
             this.setState({
-                userEmail: user.email
+                currUserEmail: user.email
             })
         }
     }
     render() {
+
         return (
-            <div className="boxes_home">
-                <div className="box_me">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpErtT1Ehnevyx6fpihxPb8kB-2N7jf0-jsGQfSrqHE6R02ZHM-Q" alt="" />
-                    <span className="my_email">{this.state.userEmail}</span>
-                    <button onClick={this.logOut}>logOut</button>
+            <div className="notes_and_form">
+                <div className="current_user">
+                    <span>{this.state.currUserEmail}</span>
+                    <button onClick={this.logOut}>LogOut</button>
                 </div>
 
-                <div className="notesBody">
-                    <div className="noteForm">
-                        < NoteForm addNote={this.addNote} />
-                    </div>
-                    <div className="notex_box">
-                        {
-                            this.state.notes.map((note, key) => {
-                                return (
-                                    < Note
-                                        noteContent={note.noteContent}
-                                        noteId={note.id}
-                                        key={note.id}
-                                        removeNote={this.removeNote}
-                                    />
-                                )
-                            })
-                        }
-                    </div>
+                <div className="notes_box">
+                    {
+                        this.state.notes.map((note, key) => {
+                            return (
+                                < Note
+                                    noteContent={note.noteContent}
+                                    noteId={note.id}
+                                    key={note.id}
+                                    userEmail={note.userEmail}
+                                    removeNote={this.removeNote}
+                                />
+                            )
+                        })
+                    }
                 </div>
-                <div className="other_user">
-                    <h2>other</h2>
+                <div className="noteForm">
+                    < NoteForm addNote={this.addNote} />
                 </div>
             </div>
         );

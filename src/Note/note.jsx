@@ -4,20 +4,26 @@ import PropTypes from 'prop-types';
 class Note extends Component {
     constructor(props) {
         super(props)
-        this.noteContent = props.noteContent;
-        this.noteId = props.noteId;
+
     }
     handleRemoveNote = (id) => {
         this.props.removeNote(id)
     }
-
     render() {
+        let { userEmail, noteContent, noteId } = this.props;
+
         return (
             <div className="note fade_in">
-                {/* <div className="btn_remove">
-                    <button onClick={() => this.handleRemoveNote(this.noteId)}>X</button>
+               
+                    <i class="far fa-smile-wink"></i>
+                
+                <div className="email_and_text">
+                    <span>{userEmail}</span>
+                    {/* <div className="btn_remove">
+                    <button onClick={() => this.handleRemoveNote(noteId)}>X</button>
                 </div> */}
-                <p>{this.noteContent}</p>
+                    <p>{noteContent}</p>
+                </div>
             </div>
         )
     }

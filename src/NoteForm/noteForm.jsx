@@ -29,7 +29,7 @@ class Note extends Component {
                     value={this.state.noteNewContent}
                     onChange={this.handleUserInput}
                 />
-                <button className="btnAdd" onClick={this.writeNote}>Add</button>
+                <button className="btnAdd" onClick={this.writeNote}>Add Note</button>
             </div>
         )
     }

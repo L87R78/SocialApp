@@ -1,84 +1,86 @@
 body {
   background: url("./Images//sky.jpg");
+  font-family: "Roboto Mono", monospace;
+  overflow: hidden;
 }
 
 .App {
-  text-align: center;
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   margin: auto;
-  .boxes_home {
-    //border: 1px solid red;
-    height: 50vh;
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    margin-top: 2rem;
-    color: white;
-    opacity: 0.9;
-    .box_me {
-      background: white;
-      border-radius: 5px;
-      height: 300px;
-      width: 250px;
-      display: flex;
-      flex-direction: column;
-      text-align: center;
-      align-items: center;
-      margin-top: 0.5rem;
-      img {
-        margin-top: 0.5rem;
-        width: 200px;
-        height: 200px;
-        border-radius: 200px;
-      }
-      .my_email {
-        margin-top: 1rem;
-        color: black;
+  .notes_and_form {
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    .current_user {
+      span {
+        color: white;
       }
       button {
-        margin-top: 1.5rem;
-      }
-    }
-    .notesBody {
-      width: 400px;
-    }
-    .other_user {
-     // border: 1px solid orange;
-      height: 300px;
-      width: 250px;
-      background: white;
-      border-radius: 5px;
-    }
-    .notesBody {
-      background: white;
-     
-      border-radius: 5px;
-      .noteForm {
-        margin-top: 1rem;
-        input {
-          width: 250px;
-          margin-right: 0.5rem;
+        margin-left: 1rem;
+        border: none;
+        height: 25px;
+        padding: 0 15px;
+        cursor: pointer;
+        border-radius: 4px;
+
+        &:hover {
+          background: grey;
         }
       }
-      .notex_box { 
-       // border: 1px solid blue;
-        height: 50vh;
-        overflow-y: scroll;
-        .note {
+    }
+    .noteForm {
+      margin: 1rem auto;
+      input {
+        width: 500px;
+        background: rgba(75, 73, 73, 0.959);
+        height: 30px;
+        color: white;
+        border: none;
+        padding-left: 1rem;
+      }
+      button {
+        background: rgba(13, 92, 13, 0.986);
+        border: none;
+        height: 32px;
+        padding: 0 15px;
+        cursor: pointer;
+        color: white;
+      }
+    }
+    .notes_box {
+      background: rgba(56, 55, 55, 0.7);
+      width: 600px;
+      height: 80vh;
+      overflow-y: scroll;
+      margin: 0.5rem auto;
+   
+      .note {
+        margin: 1rem;
+        display: flex;
+        .far {
+          font-size: 35px;
+          color: white;
+        }
+        .email_and_text {
+          margin-left: 0.5rem;
+          border-radius: 4px;
+          background: rgba(255, 255, 255, 0.527);
+          max-width: 90%;
           text-align: start;
-          
+          display: block;
+          span {
+            font-size: 21px;
+            padding: 2px 5px;
+          }
           p {
-            margin-left: 1rem;
-            display: inline-block;
-            padding: 2px 7px;
-            border-radius: 5px;
-            background: rgba(82, 129, 199, 0.637);
-            font-family: "Roboto Mono", monospace;
-            color: black;
+            padding: 0 0.5rem;
+            word-wrap: break-word;
           }
         }
       }
@@ -87,7 +89,7 @@ body {
 
   .form_block {
     background: white;
-    width: 290px;
+    max-width: 290px;
     position: relative;
     top: 200px;
     bottom: 0;
@@ -98,39 +100,23 @@ body {
     border-radius: 4px;
     opacity: 0.9;
     #title {
-      //border: 1px solid red;
-      font-family: "Roboto Mono", monospace;
       background: grey;
       padding: 0.5rem;
       color: white;
     }
 
     .body {
-      .error {
-        font-family: "Roboto Mono", monospace;
-      }
       form {
         display: flex;
         flex-direction: column;
         text-align: start;
 
         span {
-          font-family: "Roboto Mono", monospace;
           margin: 0 0.4rem;
           font-size: 12px;
           margin-top: 1rem;
           color: rgba(128, 128, 128, 0.904);
         }
-        // input {
-        //   //padding: 5px;
-        //   //font-family: 'Roboto Mono', monospace;
-        //   //border: none;
-        //   //margin: 0 1.5rem;
-        //   //border: 2px solid red;
-
-        //   //border-bottom: 1px solid grey;
-
-        // }
       }
       .buttons {
         display: flex;
@@ -141,14 +127,12 @@ body {
           cursor: pointer;
           padding: 2px;
           font-size: 12px;
-          font-family: "Roboto Mono", monospace;
         }
         .registerBtn {
           width: 70px;
           cursor: pointer;
           padding: 2px;
           font-size: 12px;
-          font-family: "Roboto Mono", monospace;
         }
       }
     }
