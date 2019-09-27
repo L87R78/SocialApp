@@ -2,7 +2,7 @@
   "name": "socialApp",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://l87r78.github.io/socialApp/",
+  "homepage": "https://l87r78.github.io/socialApp-React-Firebase/",
   "dependencies": {
     "@material-ui/core": "^4.4.3",
     "firebase": "^6.6.2",
