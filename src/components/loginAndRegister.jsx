@@ -74,12 +74,12 @@ class LoginAndRegister extends Component {
             : null
 
         let submitBtn = this.state.loginBtn
-            ? (<button type="submit" className="loginBtn" onClick={this.login} >Enter </button>)
-            : (<button type="submit" className="loginBtn" onClick={this.register} >Register</button>)
+            ? (<button type="submit" className="loginRegisterBtn" onClick={this.login} >Login</button>)
+            : (<button type="submit" className="loginRegisterBtn" onClick={this.register} >Register</button>)
 
         let login_register = this.state.loginBtn
-            ? (<button className="registerBtn" onClick={() => this.getAction('reg')}>Register</button>)
-            : (<button className="registerBtn" onClick={() => this.getAction('login')}>Login</button>)
+            ? (<button className="loginRegisterBtn" onClick={() => this.getAction('reg')}>Register</button>)
+            : (<button className="loginRegisterBtn" onClick={() => this.getAction('login')}>Login</button>)
 
         const { classes } = this.props;
         return (

@@ -11,6 +11,24 @@ body {
   left: 0;
   right: 0;
   margin: auto;
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    margin: 0.4rem 0.4rem;
+    .loginRegisterBtn {
+      background: white;
+      border: none;
+      cursor: pointer;
+      padding: 7px;
+      font-size: 15px;
+      color: grey;
+      font-weight: bold;
+      &:hover {
+        background: grey;
+        color: white;
+      }
+    }
+  }
   .notes_and_form {
     text-align: center;
     position: absolute;
@@ -37,9 +55,7 @@ body {
     .noteForm {
       margin: 1rem auto;
       input {
-        width: 500px;
         background: rgba(75, 73, 73, 0.959);
-        height: 30px;
         color: white;
         border: none;
         padding-left: 1rem;
@@ -55,11 +71,8 @@ body {
     }
     .notes_box {
       background: rgba(56, 55, 55, 0.7);
-      width: 600px;
-      height: 80vh;
       overflow-y: scroll;
       margin: 0.5rem auto;
-   
       .note {
         margin: 1rem;
         display: flex;
@@ -103,6 +116,7 @@ body {
       background: grey;
       padding: 0.5rem;
       color: white;
+      text-align: center;
     }
 
     .body {
@@ -118,22 +132,37 @@ body {
           color: rgba(128, 128, 128, 0.904);
         }
       }
-      .buttons {
-        display: flex;
-        justify-content: space-between;
-        margin: 0.4rem 0.4rem;
-        .loginBtn {
-          width: 70px;
-          cursor: pointer;
-          padding: 2px;
-          font-size: 12px;
-        }
-        .registerBtn {
-          width: 70px;
-          cursor: pointer;
-          padding: 2px;
-          font-size: 12px;
-        }
+    }
+  }
+}
+
+@media screen and(max-width: 450px) {
+  .notes_box {
+    width: 320px;
+    height: 60vh;
+  }
+  .notes_and_form {
+    .noteForm {
+      input {
+        width: 300px;
+        height: 30px;
+      }
+      button {
+        margin-top: 0.5rem;
+      }
+    }
+  }
+}
+@media screen and(min-width: 451px) {
+  .notes_box {
+    width: 600px;
+    height: 80vh;
+  }
+  .notes_and_form {
+    .noteForm {
+      input {
+        width: 500px;
+        height: 30px;
       }
     }
   }
