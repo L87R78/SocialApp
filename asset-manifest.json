@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/socialApp/static/css/main.c113bb2a.chunk.css",
-    "main.js": "/socialApp/static/js/main.e22aa0b2.chunk.js",
-    "main.js.map": "/socialApp/static/js/main.e22aa0b2.chunk.js.map",
-    "runtime-main.js": "/socialApp/static/js/runtime-main.02f87bbe.js",
-    "runtime-main.js.map": "/socialApp/static/js/runtime-main.02f87bbe.js.map",
-    "static/js/2.448bbc6a.chunk.js": "/socialApp/static/js/2.448bbc6a.chunk.js",
-    "static/js/2.448bbc6a.chunk.js.map": "/socialApp/static/js/2.448bbc6a.chunk.js.map",
-    "index.html": "/socialApp/index.html",
-    "precache-manifest.8653786fa223082ab257ce1aae25f230.js": "/socialApp/precache-manifest.8653786fa223082ab257ce1aae25f230.js",
-    "service-worker.js": "/socialApp/service-worker.js",
-    "static/css/main.c113bb2a.chunk.css.map": "/socialApp/static/css/main.c113bb2a.chunk.css.map",
-    "static/media/App.scss": "/socialApp/static/media/sky.2e047091.jpg"
+    "main.css": "/socialApp-React-Firebase/static/css/main.da1f28b5.chunk.css",
+    "main.js": "/socialApp-React-Firebase/static/js/main.1f6320ad.chunk.js",
+    "main.js.map": "/socialApp-React-Firebase/static/js/main.1f6320ad.chunk.js.map",
+    "runtime-main.js": "/socialApp-React-Firebase/static/js/runtime-main.0bcd3ac7.js",
+    "runtime-main.js.map": "/socialApp-React-Firebase/static/js/runtime-main.0bcd3ac7.js.map",
+    "static/js/2.746fd8b4.chunk.js": "/socialApp-React-Firebase/static/js/2.746fd8b4.chunk.js",
+    "static/js/2.746fd8b4.chunk.js.map": "/socialApp-React-Firebase/static/js/2.746fd8b4.chunk.js.map",
+    "index.html": "/socialApp-React-Firebase/index.html",
+    "precache-manifest.3a0dbdfd3e2b209f5b1e6a09536ef067.js": "/socialApp-React-Firebase/precache-manifest.3a0dbdfd3e2b209f5b1e6a09536ef067.js",
+    "service-worker.js": "/socialApp-React-Firebase/service-worker.js",
+    "static/css/main.da1f28b5.chunk.css.map": "/socialApp-React-Firebase/static/css/main.da1f28b5.chunk.css.map",
+    "static/media/App.scss": "/socialApp-React-Firebase/static/media/sky.2e047091.jpg"
   }
 }
